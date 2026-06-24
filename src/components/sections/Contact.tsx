@@ -30,12 +30,11 @@ export function Contact() {
     setSubmitStatus("idle");
 
     try {
-      // Replace with your EmailJS credentials
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_o70023m",
+        "template_wd6fzgz",
         formData,
-        "YOUR_PUBLIC_KEY"
+        "ExVSW_ybqSubbzG4P"
       );
       setSubmitStatus("success");
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
