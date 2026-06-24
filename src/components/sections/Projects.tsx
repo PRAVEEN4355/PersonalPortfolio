@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
+import Image from "next/image";
+
 const projects = [
   {
     title: "GLOW App",
@@ -13,7 +15,7 @@ const projects = [
     tech: ["Android", "SQLite", "REST APIs", "Digital KYC"],
     github: "#",
     demo: "#",
-    image: "📈",
+    image: "/glow-chart.png",
   },
   {
     title: "Trucell Field Operation",
@@ -21,7 +23,7 @@ const projects = [
     tech: ["Android", "Java", "Third-party SDKs", "Biometrics"],
     github: "#",
     demo: "#",
-    image: "📱",
+    image: "/trucell-mobile.png",
   },
   {
     title: "Liveness Detection Library",
@@ -29,7 +31,7 @@ const projects = [
     tech: ["Kotlin", "Camera API", "Machine Learning", "Vision API"],
     github: "#",
     demo: "#",
-    image: "👤",
+    image: "/liveness-face.png",
   },
   {
     title: "Customer Application",
@@ -37,7 +39,7 @@ const projects = [
     tech: ["Android", "UPI Integration", "REST", "MVVM"],
     github: "#",
     demo: "#",
-    image: "🏦",
+    image: "/customer-bank.png",
   },
 ];
 
@@ -59,34 +61,52 @@ export function Projects() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full flex flex-col group">
-                <div className="h-48 rounded-xl bg-slate-800 mb-6 flex items-center justify-center text-7xl overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-50 z-10" />
+              <Card className="h-full flex flex-col group overflow-hidden">
+                <div className="h-56 rounded-t-xl bg-slate-950/50 mb-6 flex items-center justify-center overflow-hidden relative border-b border-white/5">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80 z-10 pointer-events-none" />
+                  
+                  {/* Continuous Floating Animation Container */}
                   <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                    className="z-0"
+                    animate={{ 
+                      y: [-8, 8, -8],
+                      rotate: [-1, 1, -1]
+                    }}
+                    transition={{ 
+                      repeat: Infinity, 
+                      duration: 4, 
+                      ease: "easeInOut",
+                      delay: index * 0.5 // Stagger the floating effect
+                    }}
+                    className="z-0 relative w-full h-full flex items-center justify-center mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                   >
-                    {project.image}
+                    <Image 
+                      src={project.image} 
+                      alt={`${project.title} 3D Icon`}
+                      fill
+                      className="object-contain scale-[1.3] group-hover:scale-[1.4] transition-transform duration-700 ease-out p-4"
+                      unoptimized
+                    />
                   </motion.div>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 mb-6 flex-grow leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {project.tech.map((tech) => (
-                    <span 
-                      key={tech} 
-                      className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-semibold tracking-wide"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <div className="px-6 pb-6 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 mb-6 flex-grow leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-2 mt-auto">
+                    {project.tech.map((tech) => (
+                      <span 
+                        key={tech} 
+                        className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-semibold tracking-wide"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Card>
             </motion.div>
