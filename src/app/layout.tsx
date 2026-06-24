@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Experienced Android Developer specializing in Kotlin, Jetpack Compose, MVVM, Clean Architecture, Room Database, Hilt, Retrofit, and scalable mobile applications.",
 };
 
+import { VisitorTracker } from "@/components/analytics/VisitorTracker";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth antialiased`}>
       <body className="min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-white flex flex-col">
+        <VisitorTracker />
         {children}
       </body>
     </html>
