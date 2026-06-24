@@ -47,7 +47,7 @@ export function Contact() {
   };
 
   const contactInfo = [
-    { icon: FiMail, title: "Email", value: "16ito35@gmail.com", href: "mailto:16ito35@gmail.com" },
+    { icon: FiMail, title: "Email", value: "16it035@gmail.com", href: "mailto:16it035@gmail.com" },
     { icon: FiPhone, title: "Phone", value: "+91-8778151660", href: "tel:+918778151660" },
     { icon: FiMapPin, title: "Location", value: "Bengaluru, Karnataka", href: "#" },
   ];
@@ -60,9 +60,9 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 relative">
       <div className="container mx-auto px-6">
-        <SectionHeading 
-          title="Get In Touch" 
-          subtitle="Have a project in mind or want to collaborate? Let's talk!" 
+        <SectionHeading
+          title="Get In Touch"
+          subtitle="Have a project in mind or want to collaborate? Let's talk!"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
@@ -196,9 +196,9 @@ export function Contact() {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="w-full gap-2"
                   disabled={isSubmitting}
                 >

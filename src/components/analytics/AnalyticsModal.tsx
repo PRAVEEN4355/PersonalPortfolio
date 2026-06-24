@@ -27,7 +27,7 @@ export function AnalyticsModal({ isOpen, onClose }: AnalyticsModalProps) {
   const [views, setViews] = useState<PageView[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const HARDCODED_PASSWORD = "admin"; // Easy hardcoded password for the user
+  const HARDCODED_PASSWORD = "adminnew"; // Easy hardcoded password for the user
 
   useEffect(() => {
     if (isAuthenticated) {
