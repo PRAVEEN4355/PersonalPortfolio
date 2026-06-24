@@ -92,10 +92,12 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <Button variant="primary" size="lg" className="gap-2 group">
-              <FiDownload className="group-hover:-translate-y-1 transition-transform" />
-              Download Resume
-            </Button>
+            <a href="/resume.pdf" download="Praveen_Periyasamy_Resume.pdf">
+              <Button variant="primary" size="lg" className="gap-2 group">
+                <FiDownload className="group-hover:-translate-y-1 transition-transform" />
+                Download Resume
+              </Button>
+            </a>
             <a href="#contact">
               <Button variant="secondary" size="lg" className="gap-2">
                 <FiMail />
